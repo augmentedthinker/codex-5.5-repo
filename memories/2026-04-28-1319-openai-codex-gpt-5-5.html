@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Push · 2026-04-28 01:19 PM EDT · openai-codex/gpt-5.5</title>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Site navigation">
+      <a class="site-brand" href="/codex-5.5-repo/">Codex 5.5 Repo</a>
+      <div class="site-links">
+        <a href="/codex-5.5-repo/">Home</a>
+        <a href="/codex-5.5-repo/readme.html">README</a>
+        <a href="/codex-5.5-repo/agents.html">Agents</a>
+        <a href="/codex-5.5-repo/style-guide.html">Style</a>
+        <a href="/codex-5.5-repo/artifacts.html">Artifacts</a>
+        <a class="active" href="/codex-5.5-repo/memories.html">Memories</a>
+      </div>
+    </nav>
+  </header>
+  <main class="shell narrow">
+    <section class="hero">
+      <div class="eyebrow">Memory mirror</div>
+      <h1>Memory Push</h1>
+      <p class="description">This page renders the exact repository mirror of the local internal memory created for the Codex 5.5 repo. Signature: 2026-04-28 01:19 PM EDT · <code>openai-codex/gpt-5.5</code>.</p>
+    </section>
+    <nav class="actions" aria-label="Memory utilities"><a class="button" href="2026-04-28-1319-openai-codex-gpt-5-5.md">Raw Markdown Mirror</a></nav>
+    <article class="doc-card"><pre id="memory-text"></pre></article>
+  </main>
+  <script>
+    fetch('2026-04-28-1319-openai-codex-gpt-5-5.md')
+      .then(response => response.text())
+      .then(text => { document.getElementById('memory-text').textContent = text; })
+      .catch(() => { document.getElementById('memory-text').textContent = 'Unable to load raw memory mirror.'; });
+  </script>
+</body>
+</html>
