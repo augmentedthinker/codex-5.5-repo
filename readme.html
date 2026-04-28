@@ -15,6 +15,7 @@
         <a class="active" href="/codex-5.5-repo/readme.html">README</a>
         <a href="/codex-5.5-repo/agents.html">Agents</a>
         <a href="/codex-5.5-repo/style-guide.html">Style</a>
+        <a href="/codex-5.5-repo/openclaw-usage.html">Usage</a>
         <a href="/codex-5.5-repo/artifacts.html">Artifacts</a>
         <a href="/codex-5.5-repo/memories.html">Memories</a>
       </div>
@@ -45,9 +46,14 @@
         <li><code>readme.html</code> — a browser-friendly mirror of this README.</li>
         <li><code>agents.html</code> — a browser-facing mirror of <code>AGENTS.md</code>.</li>
         <li><code>style-guide.html</code> — the house style reference page.</li>
+        <li><code>openclaw-usage.html</code> — the OpenClaw/Codex usage dashboard, showing sanitized usage-window gauges, reset times, and the calculation method used to update them.</li>
         <li><code>artifacts.html</code> — the archive surface for Codex-generated artifacts.</li>
         <li><code>memories.html</code> — the browser-facing memory archive.</li>
       </ul>
+      <h2>Navigation Pattern</h2>
+      <p>The universal top navigation currently includes Home, README, Agents, Style, Usage, Artifacts, and Memories. The bar is starting to get crowded, so a future cleanup should consider grouping secondary pages, adding a compact menu, or moving less-used surfaces into a dashboard/index page.</p>
+      <h2>Usage Dashboard Protocol</h2>
+      <p>When Christopher asks for a usage dashboard update, Ash should check OpenClaw's private provider-usage source for <code>openai-codex</code>, update <code>openclaw-usage.html</code> with sanitized percentages, reset/end times, derived start times, elapsed-time percentages, and the last-updated timestamp, then commit, push, and verify GitHub Pages. OAuth tokens, account IDs, raw provider responses, and hidden quota details should not be published.</p>
       <h2>Maintenance Direction</h2>
       <p>Shared layout, navigation, card, typography, and theme styles now live in <code>assets/css/site.css</code>. Individual pages should only keep page-specific styles locally when necessary, such as canvas animation styling for visual artifacts.</p>
     </article>

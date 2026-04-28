@@ -43,13 +43,13 @@ body.centered {
 }
 
 .site-nav {
-  width: min(1040px, calc(100% - 32px));
+  width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 16px;
 }
 
 .site-brand {
@@ -65,7 +65,7 @@ body.centered {
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .site-links a {
@@ -73,8 +73,8 @@ body.centered {
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 999px;
-  padding: 8px 12px;
-  font-size: 0.92rem;
+  padding: 8px 10px;
+  font-size: 0.9rem;
   font-weight: 700;
   transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
 }

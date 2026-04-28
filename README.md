@@ -28,6 +28,7 @@ The site is currently a small static GitHub Pages project built from plain HTML,
 - `readme.html` — a browser-friendly mirror of this README.
 - `agents.html` — a browser-facing mirror of `AGENTS.md`, showing Ash's startup and memory protocols.
 - `style-guide.html` — the house style reference for shared visual patterns and site conventions.
+- `openclaw-usage.html` — the OpenClaw/Codex usage dashboard, showing sanitized usage-window gauges, reset times, and the calculation method used to update them.
 - `artifacts.html` — the archive surface for Codex-generated artifacts.
 - `memories.html` — the browser-facing memory archive for Codex memory pushes.
 
@@ -50,10 +51,13 @@ The site uses a universal top navigation bar across browser-facing pages:
 - README
 - Agents
 - Style
+- Usage
 - Artifacts
 - Memories
 
 External links are intentionally not part of the primary navigation, so clicking through the site does not unexpectedly throw the user out of the GitHub Pages experience.
+
+Note: the nav is beginning to get crowded. For now `Usage` belongs in the top bar because it is an active operational surface. A later cleanup should consider grouping secondary pages, adding a compact menu, or moving less-used surfaces into a dashboard/index page.
 
 ## Memory Push Protocol
 
@@ -64,6 +68,15 @@ When Christopher asks for a memory push while we are working in this repository:
 3. Include date, time, active model ID, repository context, decisions, file changes, and continuity notes.
 4. Add a newest-first entry to `memories.html` linking to the browser-facing memory page.
 5. Keep the repository mirror aligned in substance with the local internal memory.
+
+## Usage Dashboard Protocol
+
+When Christopher asks for a usage dashboard update:
+
+1. Check OpenClaw's private provider-usage source for `openai-codex` when available.
+2. Update `openclaw-usage.html` with the sanitized usage percentages, reset/end times, derived start times, elapsed-time percentages, and the last-updated timestamp.
+3. Do not publish OAuth tokens, account IDs, raw provider responses, or hidden quota details.
+4. Commit, push, and verify the GitHub Pages deployment.
 
 ## Artifact Protocol
 
