@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI Image Generation Test · Codex 5.5 Repo</title>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <style>
+    .image-frame {
+      margin-top: 28px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(15, 23, 42, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .image-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption-card {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Site navigation">
+      <a class="site-brand" href="/codex-5.5-repo/">Codex 5.5 Repo</a>
+      <div class="site-links">
+        <a href="/codex-5.5-repo/">Home</a>
+        <a href="/codex-5.5-repo/readme.html">README</a>
+        <a href="/codex-5.5-repo/agents.html">Agents</a>
+        <a href="/codex-5.5-repo/style-guide.html">Style</a>
+        <a class="active" href="/codex-5.5-repo/artifacts.html">Artifacts</a>
+        <a href="/codex-5.5-repo/memories.html">Memories</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="shell readable">
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span>Image generation test</div>
+      <h1>OpenAI Image Generation Test</h1>
+      <p class="description">A first Codex repo artifact built around a freshly generated image from OpenAI’s image generation path, saved into the repository and rendered directly on a GitHub Pages artifact page.</p>
+    </section>
+
+    <section class="image-frame" aria-label="Generated image preview">
+      <img src="../assets/images/openai-image-test-2026-04-28.png" alt="Abstract luminous neural tree and code constellation generated as an OpenAI image test for the Codex 5.5 repo." />
+    </section>
+
+    <section class="content-card caption-card">
+      <h2>Generation note</h2>
+      <p>This image was generated with <code>openai/gpt-image-2</code> as a practical test of the current image-generation pipeline. The prompt asked for a dark, luminous Codex-themed visual with branching neural-tree forms, code-like constellations, and cyan/violet glow.</p>
+      <div class="signature">2026-04-28 05:54 PM EDT · <code>openai-codex/gpt-5.5</code> · image model <code>openai/gpt-image-2</code></div>
+    </section>
+  </main>
+</body>
+</html>
