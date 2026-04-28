@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artifacts · Codex 5.5 Repo</title>
+  <style>
+    :root { --panel: rgba(18, 24, 38, 0.82); --panel-strong: rgba(30, 41, 59, 0.9); --text: #f8fafc; --muted: #b6c2d1; --accent: #38bdf8; --line: rgba(148, 163, 184, 0.24); }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--text); background: radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.24), transparent 32%), radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.18), transparent 30%), linear-gradient(135deg, #05070b 0%, #0f172a 55%, #111827 100%); padding: 104px 20px 48px; }
+    .shell { width: min(1040px, 100%); margin: 0 auto; display: grid; gap: 22px; }
+    .hero { border: 1px solid var(--line); background: linear-gradient(145deg, var(--panel), rgba(15, 23, 42, 0.72)); backdrop-filter: blur(18px); border-radius: 28px; padding: clamp(28px, 5vw, 52px); box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45); }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem; font-weight: 800; margin-bottom: 18px; }
+    h1 { margin: 0 0 18px; font-size: clamp(3.2rem, 8vw, 6.2rem); letter-spacing: -0.08em; line-height: 0.9; }
+    .description { max-width: 780px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.22rem); line-height: 1.75; text-align: justify; margin: 0; }
+    .artifact-card { border: 1px solid var(--line); background: var(--panel-strong); border-radius: 22px; padding: 26px; text-decoration: none; color: var(--text); transition: transform 160ms ease, background 160ms ease, border-color 160ms ease; position: relative; overflow: hidden; }
+    .artifact-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.18), transparent 30%), radial-gradient(circle at 90% 10%, rgba(167, 139, 250, 0.16), transparent 28%); pointer-events: none; }
+    .artifact-card:hover { transform: translateY(-2px); background: rgba(30, 41, 59, 0.98); border-color: rgba(56, 189, 248, 0.58); }
+    .artifact-card > * { position: relative; }
+    .artifact-card h2 { margin: 0 0 10px; font-size: 1.25rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; }
+    .artifact-card p { margin: 0 0 12px; color: var(--muted); line-height: 1.65; max-width: 780px; }
+    .signature { color: #dbeafe; font-size: 0.92rem; }
+    code { color: #e0f2fe; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.22); padding: 0.12rem 0.36rem; border-radius: 8px; white-space: nowrap; }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(5, 7, 11, 0.78); backdrop-filter: blur(18px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28); }
+    .site-nav { width: min(1040px, calc(100% - 32px)); margin: 0 auto; min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .site-brand { color: var(--text); text-decoration: none; font-weight: 850; letter-spacing: -0.03em; white-space: nowrap; }
+    .site-links { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px; }
+    .site-links a { color: var(--muted); text-decoration: none; border: 1px solid transparent; border-radius: 999px; padding: 8px 12px; font-size: 0.92rem; font-weight: 700; transition: color 160ms ease, background 160ms ease, border-color 160ms ease; }
+    .site-links a:hover { color: var(--text); background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.28); }
+    @media (max-width: 760px) { .description { text-align: left; } }
+    @media (max-width: 680px) { .site-nav { align-items: flex-start; flex-direction: column; padding: 12px 0; } .site-links { justify-content: flex-start; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Site navigation">
+      <a class="site-brand" href="/codex-5.5-repo/">Codex 5.5 Repo</a>
+      <div class="site-links">
+        <a href="/codex-5.5-repo/">Home</a>
+        <a href="/codex-5.5-repo/readme.html">README</a>
+        <a href="/codex-5.5-repo/agents.html">Agents</a>
+        <a href="/codex-5.5-repo/artifacts.html">Artifacts</a>
+        <a href="/codex-5.5-repo/memories.html">Memories</a>
+      </div>
+    </nav>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Published experiments</div>
+      <h1>Artifacts</h1>
+      <p class="description">This archive collects Codex-generated browser artifacts: visual experiments, interface studies, interactive pages, and polished outputs that should remain live and easy to revisit.</p>
+    </section>
+
+    <a class="artifact-card" href="artifacts/codex-signal-bloom-2026-04-28-1302-openai-codex-gpt-5-5.html">
+      <h2>Codex Signal Bloom</h2>
+      <p>A visually immersive canvas animation made as the first Codex 5.5 artifact for this repo.</p>
+      <div class="signature">2026-04-28 01:02 PM EDT · <code>openai-codex/gpt-5.5</code></div>
+    </a>
+  </main>
+</body>
+</html>

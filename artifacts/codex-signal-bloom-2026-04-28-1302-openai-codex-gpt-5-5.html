@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codex Signal Bloom · 2026-04-28 01:02 PM EDT · openai-codex/gpt-5.5</title>
+  <style>
+    :root { --text: #f8fafc; --muted: #b6c2d1; --accent: #38bdf8; --line: rgba(148, 163, 184, 0.24); }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; overflow: hidden; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--text); background: #030712; }
+    canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(5, 7, 11, 0.72); backdrop-filter: blur(18px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28); }
+    .site-nav { width: min(1040px, calc(100% - 32px)); margin: 0 auto; min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .site-brand { color: var(--text); text-decoration: none; font-weight: 850; letter-spacing: -0.03em; white-space: nowrap; }
+    .site-links { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px; }
+    .site-links a { color: var(--muted); text-decoration: none; border: 1px solid transparent; border-radius: 999px; padding: 8px 12px; font-size: 0.92rem; font-weight: 700; transition: color 160ms ease, background 160ms ease, border-color 160ms ease; }
+    .site-links a:hover { color: var(--text); background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.28); }
+    .caption { position: fixed; left: 50%; bottom: 34px; transform: translateX(-50%); z-index: 10; width: min(860px, calc(100% - 32px)); border: 1px solid rgba(148, 163, 184, 0.24); background: rgba(3, 7, 18, 0.58); backdrop-filter: blur(18px); border-radius: 24px; padding: 22px 24px; box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48); }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.76rem; font-weight: 850; margin-bottom: 8px; }
+    h1 { margin: 0 0 8px; font-size: clamp(2.4rem, 7vw, 5rem); letter-spacing: -0.08em; line-height: 0.9; }
+    p { margin: 0; color: var(--muted); line-height: 1.65; }
+    code { color: #e0f2fe; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.22); padding: 0.12rem 0.36rem; border-radius: 8px; white-space: nowrap; }
+    @media (max-width: 680px) { .site-nav { align-items: flex-start; flex-direction: column; padding: 12px 0; } .site-links { justify-content: flex-start; } .caption { bottom: 18px; } }
+  </style>
+</head>
+<body>
+  <canvas id="bloom" aria-label="Animated generative visualization"></canvas>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Site navigation">
+      <a class="site-brand" href="/codex-5.5-repo/">Codex 5.5 Repo</a>
+      <div class="site-links">
+        <a href="/codex-5.5-repo/">Home</a>
+        <a href="/codex-5.5-repo/readme.html">README</a>
+        <a href="/codex-5.5-repo/agents.html">Agents</a>
+        <a href="/codex-5.5-repo/artifacts.html">Artifacts</a>
+        <a href="/codex-5.5-repo/memories.html">Memories</a>
+      </div>
+    </nav>
+  </header>
+  <section class="caption">
+    <div class="eyebrow">Generative artifact</div>
+    <h1>Codex Signal Bloom</h1>
+    <p>A living field of orbiting signal threads, written as a browser-native canvas animation. Signature: 2026-04-28 01:02 PM EDT · <code>openai-codex/gpt-5.5</code>.</p>
+  </section>
+  <script>
+    const canvas = document.getElementById('bloom');
+    const ctx = canvas.getContext('2d');
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    let w, h, cx, cy, t = 0;
+    const points = Array.from({ length: 190 }, (_, i) => ({
+      seed: i * 13.37,
+      radius: 40 + Math.random() * 360,
+      speed: 0.002 + Math.random() * 0.008,
+      size: 0.8 + Math.random() * 2.4,
+      hue: 185 + Math.random() * 110
+    }));
+    function resize() {
+      w = canvas.width = Math.floor(innerWidth * DPR);
+      h = canvas.height = Math.floor(innerHeight * DPR);
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      cx = innerWidth / 2; cy = innerHeight / 2;
+    }
+    function pos(p, offset = 0) {
+      const a = t * p.speed + p.seed + offset;
+      const wave = Math.sin(t * 0.003 + p.seed) * 80;
+      const r = p.radius + wave;
+      return {
+        x: cx + Math.cos(a) * r + Math.sin(a * 2.7) * 48,
+        y: cy + Math.sin(a * 1.21) * r * 0.62 + Math.cos(a * 1.8) * 60
+      };
+    }
+    function draw() {
+      t += 1;
+      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(innerWidth, innerHeight));
+      g.addColorStop(0, 'rgba(15,23,42,0.16)');
+      g.addColorStop(1, 'rgba(3,7,18,0.34)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.globalCompositeOperation = 'lighter';
+      for (const p of points) {
+        const a = pos(p);
+        const b = pos(p, 0.018);
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `hsla(${p.hue}, 95%, 62%, 0.34)`;
+        ctx.lineWidth = p.size;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, p.size * 1.25, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue + 25}, 100%, 70%, 0.58)`;
+        ctx.fill();
+      }
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.beginPath();
+      ctx.arc(cx, cy, 7 + Math.sin(t * 0.05) * 2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(224,242,254,0.82)';
+      ctx.shadowColor = '#38bdf8';
+      ctx.shadowBlur = 36;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+      requestAnimationFrame(draw);
+    }
+    addEventListener('resize', resize);
+    resize(); draw();
+  </script>
+</body>
+</html>
