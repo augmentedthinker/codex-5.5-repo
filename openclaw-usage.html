@@ -118,6 +118,31 @@
       max-width: 34rem;
     }
 
+    .window-range {
+      display: grid;
+      gap: 8px;
+      width: 100%;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.46);
+      padding: 14px 16px;
+      text-align: left;
+    }
+
+    .window-range div {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .window-range span {
+      color: #e0f2fe;
+      font-weight: 800;
+      text-align: right;
+    }
+
     .meter-notes {
       display: grid;
       gap: 14px;
@@ -168,6 +193,10 @@
           <h2>5-hour window</h2>
           <p>Demo placeholder for the short rolling Codex/OpenAI OAuth usage window. Update this manually when we check the real current number.</p>
         </div>
+        <div class="window-range" aria-label="Demo 5-hour window range">
+          <div>Start <span>Apr 28, 2026 · 1:48 PM EDT</span></div>
+          <div>End <span>Apr 28, 2026 · 6:48 PM EDT</span></div>
+        </div>
       </article>
 
       <article class="gauge-card">
@@ -178,6 +207,10 @@
           <h2>Weekly window</h2>
           <p>Demo placeholder for the longer Codex/OpenAI OAuth usage window. This should stay marked manual unless we wire in a private live source.</p>
         </div>
+        <div class="window-range" aria-label="Demo weekly window range">
+          <div>Start <span>Apr 21, 2026 · 6:48 PM EDT</span></div>
+          <div>End <span>Apr 28, 2026 · 6:48 PM EDT</span></div>
+        </div>
       </article>
     </section>
 
@@ -185,7 +218,7 @@
       <h2>How to use this page</h2>
       <ul class="meter-notes">
         <li><strong>Public-safe by default:</strong> this page shows only manually entered percentages, not tokens, credentials, account IDs, or raw provider responses.</li>
-        <li><strong>Manual update flow:</strong> ask Ash for a “usage dashboard update.” Ash should check current usage if available, update the gauges and last-updated pill, commit the change, push it to GitHub, and verify the live page.</li>
+        <li><strong>Manual update flow:</strong> ask Ash for a “usage dashboard update.” Ash should check current usage if available, update the gauges, start/end labels, and last-updated pill, commit the change, push it to GitHub, and verify the live page.</li>
         <li><strong>Future upgrade path:</strong> if we want live telemetry later, keep the live data private/local and publish only a sanitized snapshot.</li>
       </ul>
     </section>
