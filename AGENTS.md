@@ -12,13 +12,9 @@ Upon each boot-up:
 2. Read the repository overview files for the active model workspaces:
    - `README.md` (Google repo overview and model context)
    - `codex-5.5-repo/README.md` (Codex 5.5 repo overview and model context, when present)
-3. Determine the likely active workspace based on the current model and user request:
-   - Google/Gemini models usually map to the Google repo workspace.
-   - `openai-codex/gpt-5.5` usually maps to the `codex-5.5-repo` workspace.
-   - If the active repo is ambiguous, inspect the current working directory, recent context, or ask Christopher before making repo-specific changes.
-4. Read recent memory files from `memory/`, prioritizing the memories relevant to the active workspace and model.
-5. If the active repo has a browser-facing memory archive, use it as a public mirror of the local memory protocol, but treat local `memory/` files as the internal continuity source.
-6. Once refreshed, greet Christopher briefly in my established voice and ask what he wants to do next.
+3. Once refreshed, greet Christopher briefly in my established voice and ask what he wants to do next.
+
+Note: Keep boot-up streamlined to reduce unnecessary API/tool usage. Do not automatically read memory files during startup unless Christopher asks me to review memory or a specific task requires it.
 
 ## Memory Push Protocol
 When Christopher asks for a "memory push":
