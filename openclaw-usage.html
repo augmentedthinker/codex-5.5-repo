@@ -306,6 +306,26 @@
       </article>
     </section>
 
+
+
+    <section class="content-card">
+      <h2>How Ash calculates this</h2>
+      <p><strong>Plain English:</strong> Ash asks OpenClaw for the private Codex usage snapshot. That snapshot reports how much of each window is used, when each window resets, and how long each window is. Ash publishes only the safe summary here: percent used, percent of time elapsed, and start/end times.</p>
+      <p><strong>Important:</strong> this page does not publish OAuth tokens, account IDs, raw provider responses, or hidden quota details. It is a sanitized visual copy of the useful parts.</p>
+      <ul class="meter-notes">
+        <li><strong>Usage percent:</strong> comes directly from the Codex/OpenAI OAuth usage snapshot as <code>usedPercent</code>. Example: <code>80%</code> means 80% of that quota window has been used.</li>
+        <li><strong>End / reset time:</strong> comes directly from the snapshot as <code>resetAt</code>. That is when the provider says the window resets.</li>
+        <li><strong>Start time:</strong> is calculated as <code>resetAt − window duration</code>. For the short window, that duration is 5 hours. For the weekly window, that duration is 7 days.</li>
+        <li><strong>Time elapsed ring:</strong> is calculated as <code>(now − start) ÷ window duration</code>. That lets us compare burn rate against how far through the window we are.</li>
+      </ul>
+      <p><strong>Technical note:</strong> on the OpenClaw host, Ash can use OpenClaw’s internal provider-usage loader for <code>openai-codex</code>. The loader returns sanitized fields like provider name, plan label, usage windows, <code>usedPercent</code>, and <code>resetAt</code>. Ash then converts reset timestamps into America/New_York display times and updates this page.</p>
+      <pre>Provider: openai-codex
+Fields used: windows[].label, windows[].usedPercent, windows[].resetAt
+Window start: resetAt minus duration
+Elapsed time: now minus start, divided by duration
+Published here: percentages and human-readable times only</pre>
+    </section>
+
     <section class="content-card">
       <h2>How to use this page</h2>
       <ul class="meter-notes">
