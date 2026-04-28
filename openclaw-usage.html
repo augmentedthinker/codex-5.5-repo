@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OpenClaw Usage Dashboard · Demo</title>
+  <title>OpenClaw Usage Dashboard</title>
   <link rel="stylesheet" href="assets/css/site.css" />
   <style>
     .usage-hero {
@@ -177,39 +177,38 @@
     <section class="hero usage-hero">
       <div class="eyebrow"><span class="pulse"></span>OpenClaw usage</div>
       <h1>Usage Dashboard</h1>
-      <p class="description">A visual, browser-friendly place to track Codex/OpenAI OAuth usage windows. For now these gauges are labeled as demo/manual values; they are not connected to live quota telemetry. When Christopher asks for a “usage dashboard update,” Ash updates this page, pushes it live to GitHub, and refreshes the timestamp below.</p>
+      <p class="description">A visual, browser-friendly snapshot of Codex/OpenAI OAuth usage windows. When Christopher asks for a “usage dashboard update,” Ash checks OpenClaw’s private provider-usage source, publishes only sanitized percentages and window times, pushes the page to GitHub, and refreshes the timestamp below.</p>
       <div class="pill-row" aria-label="Dashboard status">
-        <div class="status-pill">Demo values · manual refresh</div>
-        <div class="status-pill updated">Last updated · Apr 28, 2026 · 6:48 PM EDT</div>
+        <div class="status-pill updated">Last updated · Apr 28, 2026 · 7:00 PM EDT</div>
       </div>
     </section>
 
-    <section class="usage-grid" aria-label="Demo usage gauges">
+    <section class="usage-grid" aria-label="Codex usage gauges">
       <article class="gauge-card">
-        <div class="gauge" style="--value: 42; --gauge-color: #38bdf8;" aria-label="Demo 5-hour window usage: 42 percent used">
-          <div class="gauge-value"><strong>42%</strong><span>used</span></div>
+        <div class="gauge" style="--value: 80; --gauge-color: #f59e0b;" aria-label="5-hour window usage: 80 percent used">
+          <div class="gauge-value"><strong>80%</strong><span>used</span></div>
         </div>
         <div>
           <h2>5-hour window</h2>
-          <p>Demo placeholder for the short rolling Codex/OpenAI OAuth usage window. Update this manually when we check the real current number.</p>
+          <p>Short Codex/OpenAI OAuth usage window. Source reported 20% remaining and reset in about 1 hour 29 minutes at update time.</p>
         </div>
-        <div class="window-range" aria-label="Demo 5-hour window range">
-          <div>Start <span>Apr 28, 2026 · 1:48 PM EDT</span></div>
-          <div>End <span>Apr 28, 2026 · 6:48 PM EDT</span></div>
+        <div class="window-range" aria-label="5-hour window range">
+          <div>Start <span>Apr 28, 2026 · 3:29 PM EDT</span></div>
+          <div>End / reset <span>Apr 28, 2026 · 8:29 PM EDT</span></div>
         </div>
       </article>
 
       <article class="gauge-card">
-        <div class="gauge" style="--value: 27; --gauge-color: #a78bfa;" aria-label="Demo weekly window usage: 27 percent used">
-          <div class="gauge-value"><strong>27%</strong><span>used</span></div>
+        <div class="gauge" style="--value: 24; --gauge-color: #38bdf8;" aria-label="Weekly window usage: 24 percent used">
+          <div class="gauge-value"><strong>24%</strong><span>used</span></div>
         </div>
         <div>
           <h2>Weekly window</h2>
-          <p>Demo placeholder for the longer Codex/OpenAI OAuth usage window. This should stay marked manual unless we wire in a private live source.</p>
+          <p>Long Codex/OpenAI OAuth usage window. Source reported 76% remaining and reset in about 6 days 15 hours at update time.</p>
         </div>
-        <div class="window-range" aria-label="Demo weekly window range">
-          <div>Start <span>Apr 21, 2026 · 6:48 PM EDT</span></div>
-          <div>End <span>Apr 28, 2026 · 6:48 PM EDT</span></div>
+        <div class="window-range" aria-label="Weekly window range">
+          <div>Start <span>Apr 28, 2026 · 10:28 AM EDT</span></div>
+          <div>End / reset <span>May 5, 2026 · 10:28 AM EDT</span></div>
         </div>
       </article>
     </section>
@@ -217,9 +216,9 @@
     <section class="content-card">
       <h2>How to use this page</h2>
       <ul class="meter-notes">
-        <li><strong>Public-safe by default:</strong> this page shows only manually entered percentages, not tokens, credentials, account IDs, or raw provider responses.</li>
-        <li><strong>Manual update flow:</strong> ask Ash for a “usage dashboard update.” Ash should check current usage if available, update the gauges, start/end labels, and last-updated pill, commit the change, push it to GitHub, and verify the live page.</li>
-        <li><strong>Future upgrade path:</strong> if we want live telemetry later, keep the live data private/local and publish only a sanitized snapshot.</li>
+        <li><strong>Source:</strong> Ash uses OpenClaw’s private provider-usage loader for <code>openai-codex</code>, which reads the OAuth-backed Codex usage snapshot from the ChatGPT usage backend. Raw tokens, account IDs, and provider responses are not published here.</li>
+        <li><strong>Window math:</strong> the source provides used percentage, reset time, and window duration. The displayed start time is calculated as <code>reset time − window duration</code>; the displayed end time is the provider reset time.</li>
+        <li><strong>Update flow:</strong> ask Ash for a “usage dashboard update.” Ash should check current usage, update the gauges, start/end labels, and last-updated pill, commit the change, push it to GitHub, and verify the live page.</li>
       </ul>
     </section>
   </main>
