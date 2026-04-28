@@ -5,6 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Codex 5.5 Repo</title>
   <link rel="stylesheet" href="assets/css/site.css" />
+  <style>
+    .home-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: clamp(24px, 4vw, 44px);
+      align-items: center;
+    }
+
+    .home-hero .description {
+      max-width: none;
+    }
+
+    .hero-image-card {
+      position: relative;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 24px;
+      overflow: hidden;
+      min-height: 360px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      background: rgba(15, 23, 42, 0.75);
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      display: block;
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+
+    .hero-image-card::after {
+      content: "OpenAI image test · now promoted to homepage hero";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(2, 6, 23, 0.62);
+      color: #dbeafe;
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-size: 0.85rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 820px) {
+      .home-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body class="centered">
   <header class="site-header">
@@ -21,12 +75,17 @@
     </nav>
   </header>
   <main class="shell">
-    <section class="hero">
-      <div class="eyebrow"><span class="pulse"></span>OpenClaw × Codex workspace</div>
-      <h1 class="home-title">Codex 5.5 Repo</h1>
-      <p class="description">
-        This is our dedicated GitHub Pages workspace for experiments with <code>openai-codex/gpt-5.5</code>. It is built as a fresh starting point: a place for Codex-native artifacts, implementation notes, interface prototypes, memory continuity, and live browser-viewable experiments that reflect the way this model understands repositories, systems, and collaborative software work.
-      </p>
+    <section class="hero home-hero">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span>OpenClaw × Codex workspace</div>
+        <h1 class="home-title">Codex 5.5 Repo</h1>
+        <p class="description">
+          This is our dedicated GitHub Pages workspace for experiments with <code>openai-codex/gpt-5.5</code>. It is built as a fresh starting point: a place for Codex-native artifacts, implementation notes, interface prototypes, memory continuity, and live browser-viewable experiments that reflect the way this model understands repositories, systems, and collaborative software work.
+        </p>
+      </div>
+      <figure class="hero-image-card" aria-label="Generated Codex visual">
+        <img src="assets/images/openai-image-test-2026-04-28.png" alt="Abstract luminous neural tree and code constellation generated for the Codex 5.5 repo." />
+      </figure>
     </section>
 
     <a class="card-link" href="readme.html">
