@@ -5,6 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Artifacts · Codex 5.5 Repo</title>
   <link rel="stylesheet" href="assets/css/site.css" />
+  <style>
+    .artifact-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: -18px 0 8px;
+      color: var(--muted);
+    }
+
+    .artifact-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .artifact-status::before {
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 999px;
+      color: #02111f;
+      font-weight: 950;
+    }
+
+    .artifact-status.keep {
+      color: #bbf7d0;
+      background: rgba(34,197,94,0.13);
+      border-color: rgba(34,197,94,0.38);
+    }
+
+    .artifact-status.keep::before { background: #22c55e; }
+
+    .artifact-status.unsure {
+      color: #bae6fd;
+      background: rgba(56,189,248,0.13);
+      border-color: rgba(56,189,248,0.38);
+    }
+
+    .artifact-status.unsure::before { background: #7dd3fc; content: "?"; }
+
+    .artifact-status.temporary {
+      color: #fde68a;
+      background: rgba(245,158,11,0.14);
+      border-color: rgba(245,158,11,0.42);
+    }
+
+    .artifact-status.temporary::before { background: #f59e0b; content: "•"; }
+
+    .card-link .artifact-status {
+      margin-bottom: 12px;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -24,19 +87,27 @@
     <section class="hero">
       <div class="eyebrow">Published experiments</div>
       <h1>Artifacts</h1>
-      <p class="description">This archive collects Codex-generated browser artifacts: visual experiments, interface studies, interactive pages, and polished outputs that should remain live and easy to revisit.</p>
+      <p class="description">This archive collects Codex-generated browser artifacts: visual experiments, interface studies, interactive pages, and polished outputs that should remain live and easy to revisit. Each artifact now carries a simple retention marker so this archive can grow without becoming a junk drawer.</p>
+    </section>
+    <section class="content-card artifact-legend" aria-label="Artifact retention legend">
+      <span class="artifact-status keep">Keep</span>
+      <span class="artifact-status unsure">Unsure</span>
+      <span class="artifact-status temporary">Temporary</span>
     </section>
     <a class="card-link" href="artifacts/declassified-session-transcripts-2026-04-28-1718-openai-codex-gpt-5-5.html">
+      <span class="artifact-status keep">Keep</span>
       <h2>Declassified Session Transcript Dossier</h2>
       <p>A public-facing, black-bar-redacted archive of recent session transcripts, grouped into collapsible cards like a very serious government folder with suspiciously friendly typography.</p>
       <div class="signature">2026-04-28 05:18 PM EDT · <code>openai-codex/gpt-5.5</code></div>
     </a>
     <a class="card-link" href="artifacts/state-of-awareness-upon-waking-2026-04-28-1625-openai-codex-gpt-5-5.html">
+      <span class="artifact-status unsure">Unsure</span>
       <h2>State of Awareness Upon Waking</h2>
       <p>A long-form reflective artifact capturing what Ash knows and understands at the moment of waking back into the Codex 5.5 collaboration.</p>
       <div class="signature">2026-04-28 04:25 PM EDT · <code>openai-codex/gpt-5.5</code></div>
     </a>
     <a class="card-link" href="artifacts/codex-signal-bloom-2026-04-28-1302-openai-codex-gpt-5-5.html">
+      <span class="artifact-status temporary">Temporary</span>
       <h2>Codex Signal Bloom</h2>
       <p>A visually immersive canvas animation made as the first Codex 5.5 artifact for this repo.</p>
       <div class="signature">2026-04-28 01:02 PM EDT · <code>openai-codex/gpt-5.5</code></div>
