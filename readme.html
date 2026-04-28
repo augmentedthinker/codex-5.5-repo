@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>README · Codex 5.5 Repo</title>
+  <style>
+    :root {
+      --bg: #090b10;
+      --panel: rgba(18, 24, 38, 0.82);
+      --panel-strong: rgba(30, 41, 59, 0.9);
+      --text: #f8fafc;
+      --muted: #b6c2d1;
+      --accent: #38bdf8;
+      --line: rgba(148, 163, 184, 0.24);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.24), transparent 32%),
+        radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.18), transparent 30%),
+        linear-gradient(135deg, #05070b 0%, #0f172a 55%, #111827 100%);
+      padding: 48px 20px;
+    }
+
+    .shell {
+      width: min(920px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    .hero, .readme-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, var(--panel), rgba(15, 23, 42, 0.72));
+      backdrop-filter: blur(18px);
+      border-radius: 28px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero { padding: clamp(28px, 5vw, 52px); }
+    .readme-card { padding: clamp(26px, 4vw, 44px); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 24px var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(3.2rem, 8vw, 6.2rem);
+      letter-spacing: -0.08em;
+      line-height: 0.9;
+    }
+
+    .description {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+      line-height: 1.75;
+      text-align: justify;
+      margin: 0;
+    }
+
+    .readme-card h2 {
+      color: var(--accent);
+      margin-top: 2rem;
+    }
+
+    .readme-card h2:first-child { margin-top: 0; }
+
+    .readme-card p, .readme-card li {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.06rem;
+    }
+
+    code {
+      color: #e0f2fe;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      padding: 0.12rem 0.36rem;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    a { color: #7dd3fc; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid rgba(56, 189, 248, 0.34);
+      background: rgba(56, 189, 248, 0.14);
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 750;
+    }
+
+    @media (max-width: 760px) {
+      .description { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span>Repository overview</div>
+      <h1>README</h1>
+      <p class="description">
+        This page is a browser-friendly mirror of the repository README. It gives the Codex 5.5 Repo its starting shape: what the workspace is for, which model it centers, and what kind of experiments and continuity records belong here.
+      </p>
+    </section>
+
+    <nav class="actions" aria-label="README links">
+      <a class="button" href="index.html">Back to Home</a>
+      <a class="button" href="https://github.com/augmentedthinker/codex-5.5-repo/blob/main/README.md">View README on GitHub</a>
+    </nav>
+
+    <article class="readme-card">
+      <h2>Codex 5.5 Repo</h2>
+      <p>This repository is the dedicated workspace for experiments, artifacts, and continuity work using <strong>OpenAI Codex 5.5</strong> inside OpenClaw.</p>
+
+      <h2>Purpose</h2>
+      <p>The Codex 5.5 Repo is a fresh workspace for exploring what <code>openai-codex/gpt-5.5</code> brings to our collaboration: deeper repository awareness, stronger implementation discipline, careful tool use, and a more architectural understanding of project state.</p>
+      <p>Unlike the Google repo, this space is not meant to imitate an existing structure. It starts from the same spirit of careful documentation and live publishing, but it is designed around Codex's strengths: building, inspecting, refactoring, verifying, and shaping durable software artifacts.</p>
+
+      <h2>Active Model</h2>
+      <ul>
+        <li><code>openai-codex/gpt-5.5</code></li>
+      </ul>
+
+      <h2>What Belongs Here</h2>
+      <ul>
+        <li>Codex-specific experiments and comparisons</li>
+        <li>Long-form implementation notes</li>
+        <li>Live artifacts and interface explorations</li>
+        <li>Memory and continuity records for Codex-driven work</li>
+        <li>GitHub Pages prototypes, dashboards, and tools</li>
+      </ul>
+
+      <h2>Live Site</h2>
+      <p>This repository is published with GitHub Pages so the work can be viewed directly in the browser:</p>
+      <p><a href="https://augmentedthinker.github.io/codex-5.5-repo/">https://augmentedthinker.github.io/codex-5.5-repo/</a></p>
+    </article>
+  </main>
+</body>
+</html>
