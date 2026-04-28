@@ -26,7 +26,7 @@
         radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.24), transparent 32%),
         radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.18), transparent 30%),
         linear-gradient(135deg, #05070b 0%, #0f172a 55%, #111827 100%);
-      padding: 48px 20px;
+      padding: 104px 20px 48px;
     }
 
     .shell {
@@ -126,9 +126,81 @@
     @media (max-width: 760px) {
       .description { text-align: left; }
     }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 7, 11, 0.78);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .site-nav {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .site-brand {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .site-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .site-links a {
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .site-links a:hover {
+      color: var(--text);
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.28);
+    }
+
+    @media (max-width: 680px) {
+      .site-nav { align-items: flex-start; flex-direction: column; padding: 12px 0; }
+      .site-links { justify-content: flex-start; }
+    }
+
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Site navigation">
+      <a class="site-brand" href="/codex-5.5-repo/">Codex 5.5 Repo</a>
+      <div class="site-links">
+        <a href="/codex-5.5-repo/">Home</a>
+        <a href="/codex-5.5-repo/readme.html">README</a>
+        <a href="/codex-5.5-repo/memories.html">Memories</a>
+        <a href="https://github.com/augmentedthinker/codex-5.5-repo">GitHub</a>
+      </div>
+    </nav>
+  </header>
   <main class="shell">
     <section class="hero">
       <div class="eyebrow"><span class="pulse"></span>Repository overview</div>
@@ -138,10 +210,6 @@
       </p>
     </section>
 
-    <nav class="actions" aria-label="README links">
-      <a class="button" href="index.html">Back to Home</a>
-      <a class="button" href="https://github.com/augmentedthinker/codex-5.5-repo/blob/main/README.md">View README on GitHub</a>
-    </nav>
 
     <article class="readme-card">
       <h2>Codex 5.5 Repo</h2>
