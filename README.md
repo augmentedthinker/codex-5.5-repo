@@ -27,11 +27,13 @@ The site is currently a small static GitHub Pages project built from plain HTML,
 - `index.html` — the homepage and primary menu surface. It introduces the repo and links into the main sections.
 - `readme.html` — a browser-friendly mirror of this README.
 - `agents.html` — a browser-facing mirror of `AGENTS.md`, showing Ash's startup and memory protocols.
+- `style-guide.html` — the house style reference for shared visual patterns and site conventions.
 - `artifacts.html` — the archive surface for Codex-generated artifacts.
 - `memories.html` — the browser-facing memory archive for Codex memory pushes.
 
 ### Content Directories
 
+- `assets/css/site.css` — universal stylesheet for theme tokens, navigation, layout, cards, typography, and responsive behavior.
 - `artifacts/` — individual artifact pages, including visual experiments and interactive browser-native outputs.
 - `memories/` — memory push mirrors. Each memory should include both a raw markdown file and a browser-readable HTML page when appropriate.
 
@@ -47,6 +49,7 @@ The site uses a universal top navigation bar across browser-facing pages:
 - Home
 - README
 - Agents
+- Style
 - Artifacts
 - Memories
 
@@ -73,10 +76,6 @@ When creating a new artifact:
 
 ## Maintenance Direction
 
-The site has reached the point where repeated inline CSS is becoming a maintenance cost. The recommended next refactor is to extract shared layout, navigation, card, typography, and theme styles into a universal stylesheet, likely:
+Shared layout, navigation, card, typography, theme, and responsive styles now live in `assets/css/site.css`. Individual pages should only keep page-specific styles locally when necessary, such as canvas animation styling for visual artifacts. The `style-guide.html` page acts as the browser-facing house style reference and should be updated whenever we add reusable patterns.
 
-- `assets/css/site.css`
-
-After that, individual pages should only keep page-specific styles locally when necessary, such as canvas animation styling for visual artifacts. This will make the site easier to maintain, reduce duplicated code, and keep visual consistency across new pages.
-
-A later improvement could add small shared JavaScript for reusable navigation or markdown loading, but CSS extraction should come first because it provides the highest maintenance benefit with the least complexity.
+A later improvement could add small shared JavaScript for reusable navigation or markdown loading, but the first CSS extraction pass is complete.
