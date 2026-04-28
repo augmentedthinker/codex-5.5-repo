@@ -11,6 +11,13 @@
       gap: 18px;
     }
 
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
     .status-pill {
       display: inline-flex;
       width: fit-content;
@@ -25,6 +32,12 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       font-size: 0.78rem;
+    }
+
+    .status-pill.updated {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.12);
+      color: #bae6fd;
     }
 
     .usage-grid {
@@ -139,8 +152,11 @@
     <section class="hero usage-hero">
       <div class="eyebrow"><span class="pulse"></span>OpenClaw usage</div>
       <h1>Usage Dashboard</h1>
-      <p class="description">A visual, browser-friendly place to track Codex/OpenAI OAuth usage windows. For now these gauges are labeled as demo/manual values; they are not connected to live quota telemetry.</p>
-      <div class="status-pill">Demo values · manual refresh</div>
+      <p class="description">A visual, browser-friendly place to track Codex/OpenAI OAuth usage windows. For now these gauges are labeled as demo/manual values; they are not connected to live quota telemetry. When Christopher asks for a “usage dashboard update,” Ash updates this page, pushes it live to GitHub, and refreshes the timestamp below.</p>
+      <div class="pill-row" aria-label="Dashboard status">
+        <div class="status-pill">Demo values · manual refresh</div>
+        <div class="status-pill updated">Last updated · Apr 28, 2026 · 6:48 PM EDT</div>
+      </div>
     </section>
 
     <section class="usage-grid" aria-label="Demo usage gauges">
@@ -169,7 +185,7 @@
       <h2>How to use this page</h2>
       <ul class="meter-notes">
         <li><strong>Public-safe by default:</strong> this page shows only manually entered percentages, not tokens, credentials, account IDs, or raw provider responses.</li>
-        <li><strong>Manual update flow:</strong> ask Ash to check current usage, then update these demo gauges to the real percentages and push the page.</li>
+        <li><strong>Manual update flow:</strong> ask Ash for a “usage dashboard update.” Ash should check current usage if available, update the gauges and last-updated pill, commit the change, push it to GitHub, and verify the live page.</li>
         <li><strong>Future upgrade path:</strong> if we want live telemetry later, keep the live data private/local and publish only a sanitized snapshot.</li>
       </ul>
     </section>
