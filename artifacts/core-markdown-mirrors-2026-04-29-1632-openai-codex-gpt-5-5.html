@@ -88,16 +88,79 @@
     <section class="hero">
       <div class="eyebrow"><span class="pulse"></span>Behavior-shaping files</div>
       <h1>Core Markdown Mirrors</h1>
-      <p class="description">Exact public mirrors of the local workspace markdown files that were loaded into, or directly shape, Ash's behavior in this OpenClaw session. Each file is shown in a collapsible viewer with a short SHA-256 fingerprint so changes are easier to spot later.</p>
+      <p class="description">This page now separates two things that looked confusing in the first version: the base workspace markdown files currently on disk, and a public-safe active-session overlay showing the extra runtime context that is shaping this conversation.</p>
     </section>
 
     <section class="content-card mirror-note">
-      <h2>What is included</h2>
-      <p>This artifact mirrors <code>AGENTS.md</code>, <code>SOUL.md</code>, <code>IDENTITY.md</code>, <code>USER.md</code>, <code>TOOLS.md</code>, and <code>HEARTBEAT.md</code> from the active workspace as of Apr 29, 2026 · 4:32 PM EDT.</p>
-      <p>Long-term memory files are intentionally not included here. They can contain more private continuity notes and should only be mirrored if Christopher explicitly asks for that separately.</p>
+      <h2>Important clarification</h2>
+      <p>The collapsible files below are the actual markdown files currently present at the workspace root. They are still mostly the original scaffold/base versions, which is why <code>IDENTITY.md</code> and <code>USER.md</code> look unfilled.</p>
+      <p>The parts of the conversation where Ash knows Christopher's name, the active Telegram context, the current repo work, and model/session details are coming from runtime context plus recent memory/search context, not from a filled-in <code>USER.md</code> or <code>IDENTITY.md</code> file on disk.</p>
+      <p>Long-term memory files are still intentionally not mirrored here. They can contain private continuity notes and should only be published if Christopher explicitly asks for that separately.</p>
     </section>
 
-    <section class="mirror-grid" aria-label="Core markdown file mirrors">
+    <section class="content-card mirror-note">
+      <h2>Active context overlay</h2>
+      <p>This section captures the public-safe working context that explains why Ash knows names, repo state, and session details even though the root markdown files below remain mostly unfilled.</p>
+    </section>
+
+    <section class="mirror-grid" aria-label="Active session context mirror">
+      <details class="mirror-file" open>
+        <summary>
+          <span>ACTIVE-SESSION-CONTEXT.md</span>
+          <code>42 lines · sha256 743626acdb0e</code>
+        </summary>
+        <pre><code># ACTIVE-SESSION-CONTEXT.md
+
+This is a public-safe mirror of the active context overlay shaping the current conversation. It is not a literal file on disk; it is a readable snapshot of runtime/session context and recent working context that explains what the base markdown files do not show.
+
+## Identity / relationship context
+
+- Assistant name used in this conversation: Ash
+- Human name used in this conversation: Christopher
+- Telegram display/sender context: Augmented Thinker
+- Conversation surface: Telegram direct chat
+- Time zone in use: America/New_York
+
+## Runtime / model context
+
+- OpenClaw runtime: main agent in the workspace at /home/ash/.openclaw/workspace
+- Current configured model reported by status: google/gemini-2.5-pro
+- Fallback list includes OpenAI Codex models such as openai-codex/gpt-5.5
+- Default model listed at session startup: google/gemini-3.1-pro-preview
+
+## Active repo context
+
+- Working public repo: augmentedthinker/codex-5.5-repo
+- Live site: https://augmentedthinker.github.io/codex-5.5-repo/
+- Recent completed work:
+  - Updated the OpenClaw/Codex usage dashboard.
+  - Added the Core Markdown Mirrors artifact.
+  - Fixed markdown wrapping inside the collapsible viewers.
+
+## Why the base files look blank
+
+The workspace root currently contains only the scaffold versions of AGENTS.md, SOUL.md, IDENTITY.md, USER.md, TOOLS.md, and HEARTBEAT.md. Those are real files, but they are not where all current conversational context lives.
+
+The active context for this session is assembled from:
+
+1. The scaffold markdown files loaded into project context.
+2. Runtime metadata supplied by OpenClaw for this Telegram direct session.
+3. Recent memory/search context, including today&#x27;s repo work.
+4. The live conversation itself.
+
+## Privacy boundary
+
+This overlay intentionally avoids mirroring system/developer instructions, secrets, raw private memory, provider tokens, account identifiers, or hidden tool/runtime internals.
+</code></pre>
+      </details>
+    </section>
+
+    <section class="content-card">
+      <h2>Base workspace files currently on disk</h2>
+      <p>These are the exact current root markdown files from the workspace. They are being left here as the base/original scaffold mirrors.</p>
+    </section>
+
+    <section class="mirror-grid" aria-label="Base workspace markdown file mirrors">
       <details class="mirror-file" open>
         <summary>
           <span>AGENTS.md</span>
